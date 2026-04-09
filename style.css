@@ -96,14 +96,44 @@ input[type="radio"] { transform: scale(1.2); }
 .success { color: green; font-weight: bold; text-align: center; margin-bottom: 10px; }
 .error { color: red; font-size: 12px; }
 
-/* Tambah Buku */
-.tambah-buku { max-width: 500px; margin: 40px auto; padding: 20px; background: #ffffff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.tambah-buku h2 { text-align: center; margin-bottom: 15px; }
-.tambah-buku .input-group { display: flex; gap: 10px; }
-.tambah-buku input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
-.tambah-buku button { padding: 10px 15px; border: none; background: #7791e7; color: white; border-radius: 6px; cursor: pointer; }
-.tambah-buku button:hover { background: #7791e7; }
-.tambah-buku input:focus { outline: none; border-color: #7791e7; }
+.tambah-buku .input-group {
+  display: flex;
+  flex-wrap: wrap;   /* biar ke bawah jika sempit */
+  gap: 10px;
+  justify-content: center;
+}
+
+.tambah-buku input {
+  flex: 1 1 150px;   /* minimal 150px, bisa mengecil */
+  max-width: calc(100% - 20px); /* mencegah melebar berlebihan */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.tambah-buku button {
+  flex: 0 0 auto; /* ukuran tombol sesuai konten */
+  padding: 10px 15px;
+  border: none;
+  background: #7791e7;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .tambah-buku .input-group {
+    flex-direction: column; /* stack vertikal */
+    align-items: stretch;   /* full width */
+  }
+
+  .tambah-buku input,
+  .tambah-buku button {
+    max-width: 100%; /* jangan ada garis putih */
+  }
+}
 
 /* Footer */
 .footer { background-color: #b3043e; color: #f7c7da; padding: 20px 30px; }
