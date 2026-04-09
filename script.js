@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!gambar) {
       const defaultImages = [
-        "assets/default1.jpg",
-        "assets/default2.jpg",
-        "assets/default3.jpg"
+        "assets/Default1.jpg",
+        "assets/Default2.jpg",
+        "assets/Default3.jpg"
       ];
       let randomIndex = Math.floor(Math.random() * defaultImages.length);
       gambar = defaultImages[randomIndex];
