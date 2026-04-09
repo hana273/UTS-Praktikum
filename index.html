@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTS Praktikum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER & NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <span class="logo-text">TOKO BUKU</span>
+      </div>
+
+      <ul class="navbar__links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#form">Beli Buku</a></li>
+      </ul>
+
+      <div class="navbar__cta">
+        <a href="https://www.instagram.com/hnashn_?igsh=M2J2em81OWVyMnE0" target="_blank" class="btn-primary">Hire Me</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- BERANDA -->
+    <section id="beranda" class="hero">
+      <div class="hero__content">
+        <span class="hero__badge">Toko Buku Terpercaya 📚</span>
+        <h1 class="hero__title">
+          Temukan Buku Favoritmu <br>
+          <span class="highlight">Dengan Harga Terbaik</span>
+        </h1>
+        <p class="hero__desc">
+          Kami menyediakan berbagai koleksi buku menarik mulai dari novel, edukasi,
+          hingga buku populer yang siap menemani waktu luangmu.
+        </p>
+        <div class="hero__actions">
+          <a href="#produk" class="btn-primary">Lihat Buku</a>
+          <a href="#form" class="btn-outline">Beli Sekarang</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="produk">
+      <h2>Daftar Buku</h2>
+      <div class="container">
+        <div class="card">
+          <img src="assets/buku1.jpg">
+          <h3>Laut Bercerita</h3>
+          <p>Rp 250.000</p>
+        </div>
+        <div class="card">
+          <img src="assets/buku2.jpg">
+          <h3>Negeri 5 Menara</h3>
+          <p>Rp 200.000</p>
+        </div>
+        <div class="card">
+          <img src="assets/buku3.jpg">
+          <h3>Bumi Manusia</h3>
+          <p>Rp 190.000</p>
+        </div>
+        <div class="card">
+          <img src="assets/buku4.jpg">
+          <h3>Harry Potter</h3>
+          <p>Rp 300.000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM PEMBELIAN -->
+    <section id="form">
+      <h2>Form Pembelian</h2>
+
+      <p id="successMsg" class="success"></p>
+
+      <form id="buyForm">
+        <input type="text" id="nama" placeholder="Nama" required>
+        <div class="error" id="errNama"></div>
+
+        <input type="email" id="email" placeholder="Email" required>
+        <div class="error" id="errEmail"></div>
+
+        <input type="number" id="telp" placeholder="No HP" min="1" required>
+        <div class="error" id="errTelp"></div>
+
+        <select id="buku" required>
+          <option value="">Pilih Buku</option>
+          <option>Laut Bercerita</option>
+          <option>Negeri 5 Menara</option>
+          <option>Bumi Manusia</option>
+          <option>Harry Potter</option>
+        </select>
+
+        <div class="metode">
+          <label>
+            <input type="radio" name="metode" value="transfer" required> Transfer
+          </label>
+          <label>
+            <input type="radio" name="metode" value="cod" required> COD
+          </label>
+        </div>
+
+        <button type="submit">Beli</button>
+      </form>
+    </section>
+
+    <!-- TAMBAH BUKU DENGAN JS -->
+    <section class="tambah-buku">
+      <h2>Tambah Buku</h2>
+      <p id="msgTambah" class="success"></p>
+      <div class="input-group">
+        <input type="text" id="inputBuku" placeholder="Nama buku" required>
+        <input type="number" id="inputHarga" placeholder="Harga" min="1" required>
+        <button type="button" id="btnTambah">Tambah</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__logo">
+        <span class="logo-text">TOKO BUKU</span>
+      </div>
+      <div class="footer__center">
+        <p>&copy; 2026 Toko Buku</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#form">Beli Buku</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
