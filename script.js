@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const btnTambah = document.getElementById("btnTambah");
 
   btnTambah.addEventListener("click", function() {
+
+    // ambil input
     let nama = document.getElementById("inputBuku").value.trim();
     let harga = document.getElementById("inputHarga").value.trim();
     let msg = document.getElementById("msgTambah");
@@ -17,19 +19,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     msg.textContent = "";
 
-    if (nama === "" || harga === "" || parseInt(harga) <= 0) {
+    // cek input sederhana aja
+    if (nama == "" || harga == "" || harga <= 0) {
       msg.style.color = "red";
-      msg.textContent = "Nama dan harga harus diisi dengan benar!";
+      msg.textContent = "input belum benar";
       return;
     }
 
     let gambar = dataGambar[nama];
 
+    // kalau tidak ada gambar pakai random
     if (!gambar) {
       const defaultImages = [
-        "assets/Default1.jpg",
-        "assets/Default2.jpg",
-        "assets/Default3.jpg"
+        "assets/default1.jpg",
+        "assets/default2.jpg",
+        "assets/default3.jpg"
       ];
       let randomIndex = Math.floor(Math.random() * defaultImages.length);
       gambar = defaultImages[randomIndex];
@@ -47,18 +51,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.appendChild(card);
 
+    // tombol hapus
     card.querySelector(".hapus").addEventListener("click", function() {
       card.remove();
     });
 
     msg.style.color = "green";
-    msg.textContent = "Berhasil ditambahkan!";
+    msg.textContent = "berhasil ditambah";
 
     document.getElementById("inputBuku").value = "";
     document.getElementById("inputHarga").value = "";
   });
 
-  // Form Pembelian
+  // form beli
   const form = document.getElementById("buyForm");
 
   form.addEventListener("submit", function(e) {
@@ -75,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let errTelp = document.getElementById("errTelp");
     let successMsg = document.getElementById("successMsg");
 
+    // reset dulu
     errNama.textContent = "";
     errEmail.textContent = "";
     errTelp.textContent = "";
@@ -82,24 +88,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let valid = true;
 
-    if (nama === "") { errNama.textContent = "Nama tidak boleh kosong!"; valid = false; }
+    if (nama == "") {
+      errNama.textContent = "nama kosong";
+      valid = false;
+    }
 
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
-    if (email === "") { errEmail.textContent = "Email tidak boleh kosong!"; valid = false; }
-    else if (!email.match(emailPattern)) { errEmail.textContent = "Format email tidak valid!"; valid = false; }
+    // validasi email simple
+    if (email == "") {
+      errEmail.textContent = "email kosong";
+      valid = false;
+    } else if (!email.includes("@")) {
+      errEmail.textContent = "email tidak valid";
+      valid = false;
+    }
 
-    if (telp === "") { errTelp.textContent = "Nomor HP tidak boleh kosong!"; valid = false; }
-    else if (parseInt(telp) <= 0) { errTelp.textContent = "Nomor HP harus lebih dari 0!"; valid = false; }
+    if (telp == "") {
+      errTelp.textContent = "no hp kosong";
+      valid = false;
+    } else if (telp <= 0) {
+      errTelp.textContent = "no hp salah";
+      valid = false;
+    }
 
-    if (buku === "") { alert("Pilih buku dulu!"); valid = false; }
-    if (!metode) { alert("Pilih metode pembayaran!"); valid = false; }
+    if (buku == "") {
+      alert("pilih buku dulu");
+      valid = false;
+    }
+
+    if (!metode) {
+      alert("pilih metode bayar");
+      valid = false;
+    }
 
     if (valid) {
-      successMsg.style.color = "green";
-      successMsg.textContent = "Berhasil membeli dan Terimakasih!";
+      successMsg.textContent = "berhasil beli, terima kasih";
       form.reset();
-      window.scrollTo({ top: document.getElementById("form").offsetTop, behavior: "smooth" });
     }
   });
 
 });
+
